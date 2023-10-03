@@ -272,6 +272,14 @@ local Toggle = MiscTab:CreateToggle({
     end,
  })
 
+ local Section = InfoTab:CreateSection("My Discord Sever")
+ local Button = InfoTab:CreateButton({
+    Name = "https://discord.gg/unMBP9pW",
+    Callback = function()
+        print("hi")
+    end,
+ })
+
  local MorehackTab = Window:CreateTab("MoreHack", nil) -- Title, Image
  local Button = MorehackTab:CreateButton({
     Name = "Lightux Hub",
