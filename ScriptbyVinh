@@ -1,0 +1,178 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "TheVinh-Hub",
+    LoadingTitle = "Blade Ball-Hub",
+    LoadingSubtitle = "by TheVinh",
+    ConfigurationSaving = {
+       Enabled = false,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "BLadeBallVinh"
+    },
+    Discord = {
+       Enabled = true,
+       Invite = "VinhHub", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Vinh Blade Ball | Key",
+       Subtitle = "Key In Discord Server!",
+       Note = "Join Server From Misc Tab",
+       FileName = "examplehubkey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = True, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"vinhdeptrai"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+ local MainTab = Window:CreateTab("Home", nil) -- Title, Image
+ local MainSection = MainTab:CreateSection("Main")
+
+ Rayfield:Notify({
+    Title = "KichHoatScriptThanhCong",
+    Content = "Thank Vi Da Su Dung",
+    Duration = 5,
+    Image = nil,
+    Actions = { -- Notification Buttons
+       Ignore = {
+          Name = "CamOn!",
+          Callback = function()
+          print("The user tapped Okay!")
+       end
+    },
+ },
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Auto Parry V1",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/Circle"))()
+    end,
+ })
+
+
+ local Slider = MainTab:CreateSlider({
+    Name = "Range (TamDanh)",
+    Range = {0, 50},
+    Increment = 10,
+    Suffix = "Range",
+    CurrentValue = 1,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+    -- The function that takes place when the slider changes
+    -- The variable (Value) is a number which correlates to the value the slider is currently at
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Auto Parry V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry%20V4.0.0",true))()
+    end,
+ })
+
+ local Toggle = MainTab:CreateToggle({
+    Name = "AutoRange",
+    CurrentValue = false,
+    Flag = "toggleexample", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+    -- The function that takes place when the toggle is pressed
+    -- The variable (Value) is a boolean on whether the toggle is true or false
+    end,
+ })
+
+ local Dropdown = MainTab:CreateDropdown({
+    Name = "Auto Vote Map",
+    Options = {"Solo","Team2","Team4"},
+    CurrentOption = {"Random"},
+    MultipleOptions = false,
+    Flag = "Vote", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Option)
+        print(Option)
+    end,
+ })
+ local TeleportTab = Window:CreateTab("Teleport", nil) -- Title, Image
+ local Section = TeleportTab:CreateSection("Map")
+
+ local Button = TeleportTab:CreateButton({
+    Name = "Teleport To Map (NotWork)",
+    Callback = function()
+    print('lobby')
+    end,
+ })
+ local Button = TeleportTab:CreateButton({
+    Name = "Teleport To Lobby (NotWork)",
+    Callback = function()
+    print('lobby')
+    end,
+ })
+
+ local PlayerTab = Window:CreateTab("Player", nil) -- Title, Image
+ local PlayerSection = PlayerTab:CreateSection("Character")
+
+ local Slider = PlayerTab:CreateSlider({
+    Name = "Walkspeed Player",
+    Range = {0, 300},
+    Increment = 1,
+    Suffix = "Speed",
+    CurrentValue = 16,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+    end,
+ })
+
+ local Slider = PlayerTab:CreateSlider({
+    Name = "JumpPower Player",
+    Range = {0, 100},
+    Increment = 1,
+    Suffix = "Jump",
+    CurrentValue = 16,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+    end,
+ })
+
+ local MiscTab = Window:CreateTab("Misc", nil) -- Title, Image
+ local Section = MiscTab:CreateSection("Farm")
+
+ local Toggle = MiscTab:CreateToggle({
+    Name = "Auto Farm",
+    CurrentValue = false,
+    Flag = "toggleexample", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/frankblox/rbxscripts/main/0bladeball"))()
+    end,
+ })
+
+
+ local InfoTab = Window:CreateTab("Info", nil) -- Title, Image
+ local Section = InfoTab:CreateSection("Discord")
+ local Button = InfoTab:CreateButton({
+    Name = "Vinhsimulator1#9359",
+    Callback = function()
+        print("hi")
+    end,
+ })
+
+ local Section = InfoTab:CreateSection("Name Roblox")
+ local Button = InfoTab:CreateButton({
+    Name = "Vinhsimulator1",
+    Callback = function()
+        print("hi")
+    end,
+ })
+
+  local KeyBoardTab = Window:CreateTab("KeyBoardMobile", nil) -- Title, Image
+ local Section = KeyBoardTab:CreateSection("KeyBoard Mobile")
+
+ local Toggle = KeyBoardTab:CreateToggle({
+    Name = "KeyBoard",
+    CurrentValue = false,
+    Flag = "toggleexample", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+    end,
+ })
